@@ -1,7 +1,6 @@
 
 
 export default class TodoComponent {
-    id;
     state;
     target;
     constructor(target) {
@@ -31,22 +30,15 @@ export default class TodoComponent {
         // this.render();
     }
 
-    deleteTodo(id) {
+    deleteTodo(index) {
         // 삭제하는 로직
         this.setup();
         // this.render();
     }
 
-    deleteDid(id) {
+    deleteDid(index) {
         // 삭제하는 로직
         this.setup();
         // this.render();
-    }
-
-    getId() {
-        return this.id;
-    }
-    setId(id) {
-        this.id = id;
     }
 }

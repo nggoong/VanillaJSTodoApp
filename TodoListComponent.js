@@ -34,17 +34,12 @@ export default class TodoListComponent extends TodoComponent {
 
     todoToDid(str) {
         let didlist = did;
-        // let didDiv = document.querySelector('.did-list');
-        // const didCompo = new DidListComponent(didDiv);
 
         didlist.push({
             id: did.length -1,
             text: str,
             isComplete: true
         })
-
-        // didCompo.setup();
-        // didCompo.render();
     }
 
     deleteTodo(index) {
