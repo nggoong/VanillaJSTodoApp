@@ -25,6 +25,7 @@
     width:45%;
     background:white;
     border-radius: 20px;
+    overflow: auto;
 }
 
 .list-item {

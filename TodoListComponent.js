@@ -34,8 +34,8 @@ export default class TodoListComponent extends TodoComponent {
 
     todoToDid(str) {
         let didlist = did;
-        let didDiv = document.querySelector('.did-list');
-        const didCompo = new DidListComponent(didDiv);
+        // let didDiv = document.querySelector('.did-list');
+        // const didCompo = new DidListComponent(didDiv);
 
         didlist.push({
             id: did.length -1,
@@ -43,23 +43,40 @@ export default class TodoListComponent extends TodoComponent {
             isComplete: true
         })
 
-        didCompo.setup();
-        didCompo.render();
+        // didCompo.setup();
+        // didCompo.render();
     }
 
-    deleteTodo(id) {
-
+    deleteTodo(index) {
+        console.log(index);
+        todo.splice(parseInt(index), 1);
+        
+            for(let i = index; i < todo.length; i++) {
+                todo[i].id -= 1;
+            }
+        
     }
 
     setEvent() {
+        const didDiv = document.querySelector('.did-list');
+        const didCompo = new DidListComponent(didDiv);
+
         this.target.addEventListener('click', ({ target }) => {
             let itemId = target.parentNode.parentNode.dataset.index;
             let itemIndex = itemId;
             if(target.classList.contains('todo-complete-btn')) {
                this.todoToDid(todo[itemIndex].text);
+               this.deleteTodo(itemIndex);
+
+               this.setup();
+               this.render();
+               didCompo.setup();
+               didCompo.render();
             }
             if(target.classList.contains('todo-delete-btn')) {
-
+                this.deleteTodo(itemIndex);
+                this.setup();
+                this.render();
             }
         })
     }
