@@ -2,8 +2,10 @@ import TodoComponent from "./TodoComponent.js";
 import { did } from './values.js';
 
 export default class DidListComponent extends TodoComponent {
+    id;
     setup() {
         this.state = did;
+        this.id = did.length - 1;
     }
     templete() {
         return`

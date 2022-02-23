@@ -1,5 +1,6 @@
+import DidListComponent from './DidListComponent.js';
 import TodoComponent from './TodoComponent.js';
-import { todo } from './values.js';
+import { todo, did } from './values.js';
 
 export default class TodoListComponent extends TodoComponent {
     setup() {
@@ -7,6 +8,9 @@ export default class TodoListComponent extends TodoComponent {
         this.state.map((todolist)=> {
             console.log(todolist.text);
         })
+        this.id = todo.length - 1;
+
+        console.log(this.id);
     }
 
     templete() {
@@ -25,5 +29,38 @@ export default class TodoListComponent extends TodoComponent {
                 `
             }).join('')}
         `
+    }
+    
+
+    todoToDid(str) {
+        let didlist = did;
+        let didDiv = document.querySelector('.did-list');
+        const didCompo = new DidListComponent(didDiv);
+
+        didlist.push({
+            id: did.length -1,
+            text: str,
+            isComplete: true
+        })
+
+        didCompo.setup();
+        didCompo.render();
+    }
+
+    deleteTodo(id) {
+
+    }
+
+    setEvent() {
+        this.target.addEventListener('click', ({ target }) => {
+            let itemId = target.parentNode.parentNode.dataset.index;
+            let itemIndex = itemId;
+            if(target.classList.contains('todo-complete-btn')) {
+               this.todoToDid(todo[itemIndex].text);
+            }
+            if(target.classList.contains('todo-delete-btn')) {
+
+            }
+        })
     }
 }

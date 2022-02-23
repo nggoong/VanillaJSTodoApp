@@ -42,4 +42,11 @@ export default class TodoComponent {
         this.setup();
         // this.render();
     }
+
+    getId() {
+        return this.id;
+    }
+    setId(id) {
+        this.id = id;
+    }
 }
