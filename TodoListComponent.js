@@ -14,10 +14,10 @@ export default class TodoListComponent extends TodoComponent {
             ${this.state.map((todolist) => {
                 return `
                 <div class='todo-list-item list-item' data-index=${todolist.id}>
-                    <div class='todo-list-text'>
-                        ${todolist.text}
+                    <div class='todo-list-text list-text'>
+                        <p>${todolist.text}</p>
                     </div>
-                    <div class='todo-list-btns'>
+                    <div class='todo-list-btns list-btns'>
                         <button class='todo-complete-btn'> complete </button>
                         <button class='todo-delete-btn'> delete </button>
                     </div>

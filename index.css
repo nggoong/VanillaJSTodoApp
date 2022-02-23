@@ -39,7 +39,11 @@
     color:white;
 }
 
-.todo-list-text {
+.list-text {
+    padding-left:2%;
     width:75%;
     flex:1;
+}
+.list-btns {
+    padding-right:2%;
 }
