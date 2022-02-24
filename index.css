@@ -48,3 +48,11 @@
 .list-btns {
     padding-right:2%;
 }
+
+.complete {
+    text-decoration: line-through;
+    color:red;
+}
+.complete2 {
+    color:blue;
+}

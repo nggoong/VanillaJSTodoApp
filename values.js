@@ -7,7 +7,7 @@ let todo = [
     {
         id:1,
         text:'test todolist2',
-        isComplete: false
+        isComplete: true
     },
     {
         id:2,

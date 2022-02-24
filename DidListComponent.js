@@ -1,9 +1,13 @@
 import TodoComponent from "./TodoComponent.js";
+import TodoListComponent from "./TodoListComponent.js";
 import { did } from './values.js';
 
 export default class DidListComponent extends TodoComponent {
+    todoDiv;
+    todoCompo;
     setup() {
         this.state = did;
+        console.log('didcompo setup')
     }
     templete() {
         return`
@@ -27,21 +31,31 @@ export default class DidListComponent extends TodoComponent {
 
     }
     deleteDid(index) {
-        this.state.splice(index, 1);
-        for(let i = index; i<this.state.length; i++) {
-            this.state[i].id -= 1;
+        did.splice(index, 1);
+        for(let i = index; i < did.length; i++) {
+            did[i].id -= 1;
         }
     }
 
     setEvent() {
+        
+
         this.target.addEventListener('click', ({ target })=> {
+            console.log(did);
             let itemId = parseInt(target.parentNode.parentNode.dataset.index);
+            console.log(itemId);
             let itemIndex = itemId;
 
             if(target.classList.contains('did-delete-btn')) {
+                this.todoDiv = document.querySelector('.todo-list');
+                this.todoCompo = new TodoListComponent(this.todoDiv);
+
                 this.deleteDid(itemIndex);
                 this.setup();
+                this.todoCompo.setup();
                 this.render();
+                this.todoCompo.render();
+                this.todoCompo = null
             }
 
             if(target.classList.contains('did-cancel-btn')) {
@@ -52,3 +66,9 @@ export default class DidListComponent extends TodoComponent {
     }
 
 }
+
+
+
+// todoCompo = null
+// this.todocompo
+// this.todoDiv
