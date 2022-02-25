@@ -9,7 +9,7 @@ export default class TodoComponent {
         this.render();
         this.setEvent();
     }
-    setup(){console.log('component setupp')};
+    setup(){console.log('component setup')};
     templete(){ return ''; }
     render() {
         this.target.innerHTML = this.templete();
@@ -17,29 +17,7 @@ export default class TodoComponent {
     }
     setEvent() {};
 
-    todoToDid(str) {
-        // 리스트를 옮기는 로직
+    todoComplete(str) {};
 
-        // this.setup();
-        // this.render();
-    }
-
-    didToTodo(str) {
-        // 리스트를 옮기는 로직
-
-        // this.setup();
-        // this.render();
-    }
-
-    deleteTodo(index) {
-        // 삭제하는 로직
-        // this.setup();
-        // this.render();
-    }
-
-    deleteDid(index) {
-        // 삭제하는 로직
-        // this.setup();
-        // this.render();
-    }
+    deleteTodo(index) {};
 }
