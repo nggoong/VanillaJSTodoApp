@@ -20,8 +20,13 @@ import { todo } from './values.js';
         let newValueId = todo.length;
         let newValueText = document.querySelector('.todo-create-input').value;
 
+        if(!newValueText) return;
+
         let newValue = {id: newValueId, text: newValueText, isComplete: false}
         todo.push(newValue);
+
+        document.querySelector('.todo-create-input').value = '';
+
         TodoListCompo.todoInstance.render();
         
     })
