@@ -10,7 +10,7 @@ export default class TodoComponent {
         this.setEvent();
     }
     setup(){console.log('component setup')};
-    templete(){ return ''; }
+    templete(){ console.log('parent templete')}
     render() {
         this.target.innerHTML = this.templete();
         console.log('rendered');

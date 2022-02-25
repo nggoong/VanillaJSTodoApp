@@ -5,7 +5,7 @@ import { todo, did } from './values.js';
 export default class TodoListComponent extends TodoComponent {
     setup() {
         this.state = todo;
-        console.log(this.state);
+        console.log(todo);
     }
 
     templete() {
@@ -45,12 +45,12 @@ export default class TodoListComponent extends TodoComponent {
     
     todoComplete(index) {
         let changedValue = {...this.state[index], isComplete:!this.state[index].isComplete};
-        this.state.splice(index, 1);
-        this.state = [...this.state, changedValue];
+        this.state.splice(index, 1, changedValue);
+        // this.state = [...this.state, changedValue];
         this.state.sort(function(a, b) {
             return a.id - b.id;
         });
-        console.log(this.state);
+        console.log(todo);
         
     }
 
